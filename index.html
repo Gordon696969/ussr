@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>index.html</title>
+    <style>
+        /* Style for the button */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .play-button {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+            color: white;
+            font-size: 3em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 999;
+            border: none;
+        }
+
+        .play-button:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+
+        /* Style for the audio element (hidden until the button is clicked) */
+        audio {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Play Button -->
+    <button class="play-button" id="playButton">Play Audio</button>
+
+    <!-- Audio Element -->
+    <audio id="audioElement" preload="auto">
+        <source src="https://www.dropbox.com/scl/fi/o4z4ctjlrh6livylj9atz/Voicy_Loud-Moaning.mp3?rlkey=7o41ab9xvzgyx4qty241a8a15&st=5hb7qqyx&dl=1" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Add event listener to the play button
+        document.getElementById('playButton').addEventListener('click', function() {
+            var audioElement = document.getElementById('audioElement');
+            
+            // Delay the audio playback by 1 second (1000ms) using setTimeout
+            setTimeout(function() {
+                audioElement.play();  // Play the audio after the delay
+            }, 1000);  // 1000 milliseconds = 1 second
+        });
+
+        // Simulate the button click as soon as the page loads
+        window.onload = function() {
+            var playButton = document.getElementById('playButton');
+            playButton.click();  // Automatically trigger the button click
+        };
+    </script>
+
+</body>
+</html>
